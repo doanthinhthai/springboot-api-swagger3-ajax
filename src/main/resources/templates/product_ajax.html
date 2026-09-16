@@ -234,7 +234,9 @@
                     loadProducts(); // Load lại bảng không cần F5 trang
                 },
                 error: function(err) {
-                    alert("Lỗi thêm sản phẩm!");
+                    console.error(err);
+                    var msg = err.responseJSON ? err.responseJSON.message : (err.responseText || "Thất bại");
+                    alert("Lỗi: " + msg);
                 }
             });
         });
